@@ -27,6 +27,13 @@ class Role:
     # who have been hired.
     @classmethod
     def silver_screen(cls):
+        hired = list({h for h in cls.all})
+        for character in Audition.all:
+            if character.hired == True:
+                hired = character.role.character_name
+                return hired
+        else:
+            return hired
 
-        return list({h for h in cls.all})
+
         
